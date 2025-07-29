@@ -1,7 +1,7 @@
 import pytest
 from fastapi.testclient import TestClient
 import allure
-from service import app
+from service import *
 
 client = TestClient(app)
 
