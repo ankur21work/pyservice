@@ -1,7 +1,7 @@
 import pytest
 import allure
 
-
+@allure.suite("[Automated] Login Module")
 @allure.step("Perform login with username: {username} and password: {password}")
 def login(username, password):
     """Simulates a user login."""
