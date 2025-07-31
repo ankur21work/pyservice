@@ -22,7 +22,7 @@ on:
 env:
   ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
   ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
-  ALLURE_ENDPOINT: https://testops.example.com
+  ALLURE_ENDPOINT: https://mypocproject.testops.cloud/
   ALLURE_PROJECT_ID: 1
   ALLURE_RESULTS: build/allure-results
 
@@ -51,7 +51,7 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
-      run: python -m pytest
+    - name: Run Smoke Test with pytest
+      run: pytest -m smoke
     - name: Upload to allure test ops
       run: allurectl upload allure-results
