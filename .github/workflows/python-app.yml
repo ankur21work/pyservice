@@ -53,5 +53,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Run Smoke Test with pytest
       run: pytest -m smoke
+    - name: Install allurectl
+      uses: allure-framework/setup-allurectl@v1
     - name: Upload to allure test ops
       run: allurectl upload allure-results
