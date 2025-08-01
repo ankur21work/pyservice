@@ -31,13 +31,13 @@ def attempt_invalid_login(username, password):
     assert username != "user" or password != "pass", "Expected invalid credentials"
 
 @pytest.mark.smoke
-@allure.description("Test for successful login")
+@allure.title("Test for successful login")
 def test_successful_login_flow():
     """A test case demonstrating a successful login flow with steps."""
     login("user", "pass")
     navigate_to_dashboard()
     verify_login_status()
-@allure.description("Test for invalid login")
+@allure.title("Test for invalid login")
 def test_invalid_login_flow():
     """A test case demonstrating an invalid login flow with steps."""
     with pytest.raises(Exception): # Expecting an exception due to failed login
